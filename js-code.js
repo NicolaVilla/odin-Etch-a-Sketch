@@ -5,12 +5,15 @@ const smallButton = document.getElementById("small-button");
 const mediumButton = document.getElementById("medium-button");
 const bigButton = document.getElementById("big-button");
 const clearButton = document.getElementById("clear-button");
+const eraserButton = document.getElementById("eraser-button");
+const pencilButton = document.getElementById("pencil-button");
 
 
 
 
 let n = 16;
-
+let drawColor = "black"
+drawGrid();
 function drawGrid(){
 
     var gridArray = [];
@@ -25,9 +28,9 @@ function drawGrid(){
             div.style.minWidth = 500/n + "px";
             div.style.minHeight= 500/n + "px";
             gridArray[i].appendChild(div);
-            
+            div.style.backgroundColor = "white";
             div.addEventListener('mouseover',function(){
-                div.style.backgroundColor = "black";});
+                div.style.backgroundColor = drawColor;});
             
         }
     }
@@ -67,3 +70,10 @@ clearButton.addEventListener('click',function(){
     drawGrid();
 });
 
+eraserButton.addEventListener('click',function(){
+    drawColor = "white";
+});
+
+pencilButton.addEventListener('click',function(){
+    drawColor = "black";
+});
